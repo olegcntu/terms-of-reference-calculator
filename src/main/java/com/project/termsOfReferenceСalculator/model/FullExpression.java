@@ -10,7 +10,10 @@ import java.util.List;
 @Component
 public class FullExpression {
 
-    public String result = "0";
+    private String input;
+    private String result = "0";
+    private boolean normal;
+
 
     private ReversePolishNotation reversePolishNotation;
     private CalculationNotes calculationNotes;
@@ -27,6 +30,12 @@ public class FullExpression {
 
 
     public void calc(String inputEx) {
+        this.input = inputEx;
+        if (input.isEmpty()) {
+            this.normal = false;
+            this.result = "";
+            return;
+        }
 
         List<String> expression = reversePolishNotation.parse(inputEx);
         if (!ReversePolishNotation.flag) {
@@ -34,7 +43,15 @@ public class FullExpression {
             return;
         }
         this.result = calculationNotes.calc(expression);
+        this.normal = ReversePolishNotation.flag;
+    }
 
+    public String getInput() {
+        return input;
+    }
+
+    public boolean isNormal() {
+        return normal;
     }
 
     public String getResult() {

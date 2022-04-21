@@ -1,13 +1,121 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<style>
+    table {
+        width: 100%;
+        border: none;
+        margin-bottom: 20px;
+        border-collapse: separate;
+    }
+
+    table thead th {
+        font-weight: bold;
+        text-align: left;
+        border: none;
+        padding: 10px 15px;
+        background: #EDEDED;
+        font-size: 14px;
+        border-top: 1px solid #ddd;
+    }
+
+    table tr th:first-child, .table tr td:first-child {
+        border-left: 1px solid #ddd;
+    }
+
+    table tr th:last-child, .table tr td:last-child {
+        border-right: 1px solid #ddd;
+    }
+
+    table thead tr th:first-child {
+        border-radius: 20px 0 0 0;
+    }
+
+    table thead tr th:last-child {
+        border-radius: 0 20px 0 0;
+    }
+
+    table tbody td {
+        text-align: left;
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    table tbody tr:nth-child(even) {
+        background: #8c8b8b;
+    }
+
+    table tbody tr:last-child td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr:last-child td:first-child {
+        border-radius: 0 0 0 20px;
+    }
+
+    table tbody tr:last-child td:last-child {
+        border-radius: 0 0 20px 0;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Data</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-
 <div th:insert="~{block/header :: header}"></div>
+
+<table>
+    <tr>
+        <th>Expression</th>
+        <th>Result</th>
+    </tr>
+    <div th:each="expressionMap:${expressionMaps}">
+        <tr>
+            <td><a th:text="${expressionMap.getExpression()}">mail</a></td>
+            <td><a th:text="${expressionMap.getResult}">surname</a></td>
+        </tr>
+    </div>
+</table>
+
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Expression</th>-->
+<!--        <th>Result</th>-->
+<!--        <th>Edit</th>-->
+<!--    </tr>-->
+<!--    <div>-->
+<!--        <tr>-->
+<!--            <td><a >surname</a></td>-->
+<!--            <td><a >mail</a></td>-->
+<!--            <td>-->
+<!--                <form th:method="GET" th:action="@{/people/new}">-->
+<!--                    <input type="submit" value="New!"/>-->
+<!--                </form>-->
+<!--            <td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--            <td><a >surname</a></td>-->
+<!--            <td><a >mail</a></td>-->
+<!--            <td>-->
+<!--                <form th:method="GET" th:action="@{/people/new}">-->
+<!--                    <input type="submit" value="New!"/>-->
+<!--                </form>-->
+<!--            <td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><a >surname</a></td>-->
+<!--            <td><a >mail</a></td>-->
+<!--            <td>-->
+<!--                <form th:method="GET" th:action="@{/people/new}">-->
+<!--                    <input type="submit" value="New!"/>-->
+<!--                </form>-->
+<!--            <td>-->
+<!--        </tr>-->
+<!--    </div>-->
+<!--</table>-->
 
 </body>
 </html>

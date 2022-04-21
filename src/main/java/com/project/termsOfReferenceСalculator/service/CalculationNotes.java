@@ -28,10 +28,10 @@ public class CalculationNotes {
                     default -> stack.push(Double.valueOf(x));
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return "incorrect expression";
         }
-        if(stack.isEmpty()){return "";}
+
 
         return stack.pop().toString();
     }
