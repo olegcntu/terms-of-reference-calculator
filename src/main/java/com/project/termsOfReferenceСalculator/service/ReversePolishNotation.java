@@ -47,8 +47,7 @@ public class ReversePolishNotation {
         while (tokenizer.hasMoreTokens()) {
             curr = tokenizer.nextToken();
             if (!tokenizer.hasMoreTokens() && isOperator(curr)) {
-                postfix.add(0,"Некорректное выражение.");
-                System.out.println("Некорректное выражение.");
+                postfix.add(0,"incorrect expression.");
                 flag = false;
                 return postfix;
             }

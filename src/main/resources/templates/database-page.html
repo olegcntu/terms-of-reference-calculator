@@ -43,7 +43,7 @@
     }
 
     table tbody tr:nth-child(even) {
-        background: #8c8b8b;
+        background: #f5c3c3;
     }
 
     table tbody tr:last-child td {
@@ -66,6 +66,14 @@
 <body>
 <div th:insert="~{block/header :: header}"></div>
 
+
+<form th:method="POST" th:action="@{/search}">
+    <br/>
+    <input type="search" name="search"/>
+    <br/>
+    <input type="submit" value="Search!"/>
+</form>
+
 <table>
     <tr>
         <th>Expression</th>
@@ -73,49 +81,13 @@
     </tr>
     <div th:each="expressionMap:${expressionMaps}">
         <tr>
-            <td><a th:href="" th:text="${expressionMap.getExpression()}">mail</a></td>
+            <td><a th:href="@{/expression/{id}(id=${expressionMap.getId()})}"
+                   th:text="${expressionMap.getExpression()}">mail</a></td>
             <td><a th:text="${expressionMap.getResult}">surname</a></td>
         </tr>
     </div>
 </table>
 
-<!--<table>-->
-<!--    <tr>-->
-<!--        <th>Expression</th>-->
-<!--        <th>Result</th>-->
-<!--        <th>Edit</th>-->
-<!--    </tr>-->
-<!--    <div>-->
-<!--        <tr>-->
-<!--            <td><a >surname</a></td>-->
-<!--            <td><a >mail</a></td>-->
-<!--            <td>-->
-<!--                <form th:method="GET" th:action="@{/people/new}">-->
-<!--                    <input type="submit" value="New!"/>-->
-<!--                </form>-->
-<!--            <td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--            <td><a >surname</a></td>-->
-<!--            <td><a >mail</a></td>-->
-<!--            <td>-->
-<!--                <form th:method="GET" th:action="@{/people/new}">-->
-<!--                    <input type="submit" value="New!"/>-->
-<!--                </form>-->
-<!--            <td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><a >surname</a></td>-->
-<!--            <td><a >mail</a></td>-->
-<!--            <td>-->
-<!--                <form th:method="GET" th:action="@{/people/new}">-->
-<!--                    <input type="submit" value="New!"/>-->
-<!--                </form>-->
-<!--            <td>-->
-<!--        </tr>-->
-<!--    </div>-->
-<!--</table>-->
 
 </body>
 </html>

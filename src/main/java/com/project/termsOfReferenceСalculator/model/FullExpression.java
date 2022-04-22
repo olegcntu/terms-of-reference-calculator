@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static com.project.termsOfReferenceСalculator.service.CalculationNotes.isFlagCalculator;
+
 @Component
 public class FullExpression {
 
@@ -40,10 +42,19 @@ public class FullExpression {
         List<String> expression = reversePolishNotation.parse(inputEx);
         if (!ReversePolishNotation.flag) {
             this.result = expression.get(0);
+            this.normal=false;
             return;
         }
         this.result = calculationNotes.calc(expression);
-        this.normal = ReversePolishNotation.flag;
+        this.normal = isFlagCalculator();
+    }
+
+    public void setInput(String input) {
+        this.input = input;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 
     public String getInput() {

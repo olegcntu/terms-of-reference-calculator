@@ -1,5 +1,6 @@
 package com.project.termsOfReferenceСalculator.service;
 
+import com.project.termsOfReferenceСalculator.model.FullExpression;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayDeque;
@@ -9,6 +10,13 @@ import java.util.Scanner;
 
 @Component
 public class CalculationNotes {
+
+    private static boolean flagCalculator=true;
+
+    public static boolean isFlagCalculator() {
+        return flagCalculator;
+    }
+
     public String calc(List<String> postfix) {
         Deque<Double> stack = new ArrayDeque<>();
         try {
@@ -29,6 +37,7 @@ public class CalculationNotes {
                 }
             }
         } catch (Exception e) {
+            this.flagCalculator=false;
             return "incorrect expression";
         }
 
