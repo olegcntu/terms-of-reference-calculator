@@ -15,7 +15,7 @@
 
 
     <form th:action="@{/expression}"  method="post">
-        <textarea rows="10" name="expression" class="form-control" placeholder="expression"></textarea><br>
+        <textarea rows="10" name="expression" class="form-control" th:placeholder="${fullExpression.getInput()}"></textarea><br>
         <output   class="form-control" th:text="${fullExpression.getResult()}">result</output><br>
         <button type="submit" class="btn btn-success">to count</button>
     </form>

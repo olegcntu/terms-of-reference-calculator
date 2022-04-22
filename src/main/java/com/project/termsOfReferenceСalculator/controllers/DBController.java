@@ -58,10 +58,6 @@ public class DBController {
 
     @PostMapping("/search")
     public String expressionSearch(@RequestParam("search") String search, Model model) {
-        //Iterable<ExpressionMap> expressionMaps = expressionMapRepository.findByResult(search);
-        //Iterable<ExpressionMap> expressionMaps = expressionMapRepository.findByResultAfter(search);
-        //Iterable<ExpressionMap> expressionMaps = expressionMapRepository.findByResultBefore(search);
-
         Iterable<ExpressionMap> expressionMaps=searchResult.searching(search);
         model.addAttribute("expressionMaps", expressionMaps);
 

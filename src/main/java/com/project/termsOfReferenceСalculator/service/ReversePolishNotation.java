@@ -55,14 +55,17 @@ public class ReversePolishNotation {
              if (isDelimiter(curr)) {
                 if (curr.equals("(")) stack.push(curr);
                 else if (curr.equals(")")) {
-                    while (!stack.peek().equals("(")) {
-                        postfix.add(stack.pop());
-                        if (stack.isEmpty()) {
-                            postfix.add(0,"parentheses are not comparable ");
-                            flag = false;
-                            return postfix;
+                    try {
+                        while (!stack.peek().equals("(")) {
+                            postfix.add(stack.pop());
+
                         }
+                    }catch (Exception e){
+                        postfix.add(0,"parentheses are not comparable ");
+                        flag = false;
+                        return postfix;
                     }
+
                     stack.pop();
 
                 } else {

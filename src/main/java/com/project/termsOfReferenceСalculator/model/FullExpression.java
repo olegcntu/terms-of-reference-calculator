@@ -12,7 +12,7 @@ import static com.project.termsOfReferenceСalculator.service.CalculationNotes.i
 @Component
 public class FullExpression {
 
-    private String input;
+    private String input="0";
     private String result = "0";
     private boolean normal;
 
